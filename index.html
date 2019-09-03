@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Yigit Alparslan</title>
+
+
+<style type="text/css">
+
+pre,
+code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+pre {
+  padding: .5rem;
+  line-height: 1.25;
+  overflow-x: scroll;
+}
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+      margin-top: 0;
+  margin-bottom: 0;
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+a,
+a:visited {
+  color: #CD5C5C;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #96c8ea;
+}
+
+.retro-no-decoration {
+  text-decoration: none;
+}
+
+html {
+  font-size: 13px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  line-height: 1.85;
+}
+
+p,
+.retro-p {
+  font-size: 1rem;
+  padding-left: 1rem;
+  /*margin-bottom: 1.3rem;*/
+}
+
+
+right {
+  text-align: right;
+}
+
+
+h1,
+.retro-h1,
+h2,
+.retro-h2,
+h3,
+.retro-h3,
+h4,
+.retro-h4 {
+  /*margin: 1.414rem 0 .5rem;*/
+  font-weight: inherit;
+  line-height: 1.42;
+}
+
+h1,
+.retro-h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #CD5C5C;
+  font-size: 2.200rem;
+}
+
+h2,
+.retro-h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2.000rem;
+}
+
+h3,
+.retro-h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.7rem;
+  font-weight: 100;
+
+}
+
+span {
+  float:right;
+  white-space:nowrap;
+}
+
+h4,
+.retro-h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  /*padding: 0px;*/
+  /*margin: 0px;*/
+}
+
+h5,
+.retro-h5 {
+  font-weight: inherit;
+  line-height: 1.42;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h6,
+.retro-h6 {
+  font-size: .88rem;
+}
+
+small,
+.retro-small {
+  font-size: .707em;
+}
+
+multi-column { 
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -moz-column-fill: auto;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    -webkit-column-fill: auto;
+    column-count: 2;
+    column-gap: 20px;
+    column-fill: auto;
+    list-style-position: inside;
+}
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+html,
+body {
+  background-color: #FFF;
+  min-height: 100%;
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+  color: #000;
+  font-family: "Courier New";
+  line-height: 1.4;
+  margin: 6rem auto 1rem;
+  max-width: 70rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  /*padding: .25rem;*/
+}
+
+font.input {
+  color: #CD5C5C;
+  font-weight: bold;
+}
+
+pre {
+  background-color: #333;
+}
+
+blockquote {
+  border-left: 3px solid #CD5C5C;z
+  /*padding-left: 1rem;*/
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<p><center></p>
+
+<h1 id="toc_0">Yigit Alparslan</h1>
+
+<p>(***)-368-8567 📞 <font class="input">|</font> github.com/ya332 💻 <font class="input">|</font> www.linkedin.com/in/yigit-alparslan 🌐 <font class="input">|</font>  alparslanyigitcan@gmail.com ✉️<br/>
+</center></p>
+
+<hr>
+
+<h3 id="toc_1">About Me 🧔🏻</h3>
+
+<p>My name is Yigit Alparslan. I am a Junior at Drexel University studying BS/MS Computer Science graduating in June 2021. At Drexel University, I am enrolled in a five year, three Co-Op program. I am a determined, driven, and hardworking person with a passion for programming. I am always looking for new opportunities and experiences to better myself as well as my education.</p>
+
+<ul>
+<li><a href="https://www.linkedin.com/in/yigit-alparslan/">Linkedin</a></li>
+<li><a href="https://github.com/ya332">GitHub</a></li>
+<li><a href="https://scholar.google.com/citations?hl=en&user=dVul5rMAAAAJ&view_op=list_works&gmla=AJsN-F6UGvz00AYzFE7UXTGdTgDAATrS4YUp1XRbDwMN_qZASKnFKBhIh0KvScRdnB4307xl90ki1s2FfzVDQTRFE4Wxx7hElLu3YBZhgz4YgxNVR60GfgY">Google Scholar Profile</a></li>
+<li><a href="files/Yigit_Can_Alparslan.pdf">Resume</a></li>
+</ul>
+
+<hr>
+
+<h3 id="toc_2">Education 🎒</h3>
+
+<p>
+Drexel University
+<span>Philadelphia, PA</span></br>
+Bachelor of Science in Electrical & Computer Engineering, Master of Science in Computer Science<span>Anticipated Graduation: June 2021</span> <br/>
+Cumulative GPA: 3.97 <br/>
+
+</p>
+
+<h4 id="toc_3">Activities:</h4>
+
+<p>
+Drexel in England: University of Leeds Exchange <span>Sept 2017 - January 2018</span><br/>
+• Drexel DragonLan
+• DreDrexel Global Scholar;
+Drexel Fellowship Ambassador;
+Undergraduate Research Leader; Drexel STAR Research Scholar;
+Undergraduate Research Fellow at Electrochemica Energy Systems Laboratory;
+Pennoni Honors College Student <br/>
+
+</p>
+
+<h4 id="toc_4">Honors and Awards:<br/></h4>
+
+<p>• Anthony J. Drexel Scholarship<br/>
+• Dean&#39;s List : College of Computing and Informatics<span>Sept 2018 - 2019</span>
+<br/></p>
+
+<hr>
+
+<h3 id="toc_5">Technical Skills 🖥</h3>
+
+<blockquote>
+<ul>
+<li>Programming Languages: Python, C, MySQL, Bash-Scripting, PostgreSQL<br/></li>
+<li>Operating Systems: Linux, MacOS, Windows</li>
+<li>Frameworks and Tools: Flask, Git, Ansible, AWS EC2, JIRA</li>
+</ul>
+</blockquote>
+
+<hr>
+
+<h3 id="toc_6">Experience ⌨️</h3>
+
+<h4 id="toc_7">Software Developer (STAR Intern)<br/><i>SAP North America</i><span>Newtown Square, PA</span><br/><span>April 2019 - Present</span></h4>
+
+<blockquote>
+<ul>
+<li>Created and built software images for machineQ LoRaWan Gateways</li>
+<li>Manage and deploy software packages and releases via OTA updates</li>
+<li>Developed REST APIs to manage and push gateway configurations in Lua and Flask</li>
+<li>Fixed network and software issues on an OpenWrt environment
+<br/></li>
+</ul>
+</blockquote>
+
+<h4 id="toc_8">Software/DevOps Engineer<br/><i>machineQ at Comcast</i><span>Philadelphia, PA</span><br/><span>April 2018 - Sept 2018</span></h4>
+
+<blockquote>
+<ul>
+<li>Created GUI for the Gateway Testing Framework using Bootstrap and Flask</li>
+<li>Developed a utility tool to upgrade and test Gateways using Ansible</li>
+<li>Wrote scripts to connect and monitor Gateways Wifi status in Lua</li>
+<li>Fixed bugs in Gateway operating system and internal application tools</li>
+</ul>
+</blockquote>
+
+<h4 id="toc_9">Software Engineer <br/><i>SAP America</i><span>Philadelphia, PA</span><br style="clear:both;"/><span>March 2017 - Sept 2017</span></h4>
+
+<blockquote>
+<ul>
+<li> Created VBSripts to test SAP software and systems.</li>
+<li>Developed application using SAPUI5 on Fiori Launchpad.</li>
+<li>Created Java REST API using Jersey and Hana Cloud Platform Backend.</li>
+<li>Designed an efficient schema to track version control and dynamically store review forms.</li>
+</ul>
+</blockquote>
+
+<h4 id="toc_10">Software Developer <br/><i>Comcast</i><span>Greater Philadelphia Area, PA</span><br style="clear:both;"/><span>March 2016 – Sept 2016 </span></h4>
+
+<blockquote>
+<ul>
+<li>Created a Python script to flag upcoming tickets with missing impacted network towers</li>
+<li>Updated feeder engine in Python to post correct payload of outgoing scheduled incident tickets.</li>
+<li>Fixed bugs in AngularJS on existing web platforms.</li>
+<li>Integrated a search functionality to retrieve and populate customer data tailored to user input</li>
+</ul>
+</blockquote>
+
+<h4 id="toc_11">DBA Assistant <br/><i>Swarthmore College</i><span>Swarthmore, PA</span><br/><span>July 2015 – Feb 2016</span></h4>
+
+<blockquote>
+<ul>
+<li>Assisted with campus projects used in data analysis of student records</li>
+<li>Created and computed student records into the database system</li>
+<li>Analyzed data to locate missing or duplicate records in database</li>
+</ul>
+</blockquote>
+
+<p><br/></p>
+
+<hr>
+
+<h3 id="toc_12">Projects 👨🏻‍💻</h3>
+
+<h4 id="toc_13">Simplicity<span>Fintech Hackathon (2nd Place)</span><br style="clear:both;"/><span>October 2017</span></h4>
+
+<blockquote>
+<ul>
+<li>Developed Alexa Skill to interact with HSBC Banking services from Amazon Echo.</li>
+<li>Offers random pin character selection to avoid issues with announcing sensitive information.</li>
+<li>Used Ngrok to tunnel flask-ask application to Alexa Skills Kit. </li>
+<li>Developed in Python and YAML scenarios.</li>
+<li><a href="https://github.com/ya332/SIMPLICITY" title="Simplicity">View Project on Github</a></li>
+</ul>
+</blockquote>
+
+<h4 id="toc_14">Service Review Application<span>June 2017</span></h4>
+
+<blockquote>
+<ul>
+<li>Developed application using SAPUI5 on Fiori Launchpad.</li>
+<li>Created Java REST API using Jersey and HCP.</li>
+<li>Designed an efficient schema to track different versions of completed reviews, as well as dynamically store all forms on HANA Cloud Platform.</li>
+</ul>
+</blockquote>
+
+<h4 id="toc_15">Alzheimer-Care-Center<span>April 2017</span><br/><span></h4>
+
+<blockquote>
+<ul>
+<li>Relational DBMS for the scheduling and data collection of the patients in an alzheimer’s care center. Consists of entering, storing, and exporting data on the day-to-day activities of Alzheimer’s patients.</li>
+<li><a href="https://github.com/ya332/Alzheimer-Care-Center" title="Alzheimer-Care-Center">View Project on Github</a></li>
+</ul>
+</blockquote>
+
+<h4 id="toc_16">Customer Timeline Mobile<span>Internal Project within Comcast</span><br/><span><span>March 2016</span><br/><span></h4>
+
+<blockquote>
+<ul>
+<li>Worked as a team to develop a mobile web application for an existing web platform </li>
+<li>Converted an existing internal tool with over 5 million hits weekly into a usable mobile friendly application</li>
+<li>Designed and implemented using Ionic framework and REST API&#39;s.</li>
+</ul>
+</blockquote>
+
+<p><br/></p>
+
+<p><center></p>
+
+<hr>
+
+<p>• Yigit Alparslan •</p>
+
+<hr>
+
+<p></center></p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+
+</body>
+
+</html>
